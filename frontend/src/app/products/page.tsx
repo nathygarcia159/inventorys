@@ -26,16 +26,21 @@ export const Products = () => {
     setCart(savedCart);
   }, []);
 
-  const handleAddToCart = (product) => {
-    const updatedCart = [...cart, product]; 
-    setCart(updatedCart); 
-    localStorage.setItem("cart", JSON.stringify(updatedCart)); 
-    alert("Producto agregado al carrito.");
-  };
 
   if (isLoading) return <div className="py-4">Cargando...</div>;
   if (isError || !products)
     return <div className="text-center text-red-500 py-4">Conexión fallida</div>;
+
+    // Obtener solo el primer producto
+  const product = products[0];
+
+  // Función para agregar el producto al carrito
+  const handleAddToCart = (product: any) => {
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert("Producto agregado al carrito.");
+  };
 
   return (
     <> 
