@@ -24,7 +24,7 @@ const columns:GridColDef[]=[
       stockQuantity: number;
       rating: number;
     }
-export const ProductLista = () => {
+ const ProductLista = () => {
 
  
   const [isModalOpen, setIsModalOpen]=useState(false);
