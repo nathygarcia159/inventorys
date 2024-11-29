@@ -31,10 +31,8 @@ export const Products = () => {
   if (isError || !products)
     return <div className="text-center text-red-500 py-4">Conexión fallida</div>;
 
-    // Obtener solo el primer producto
   const product = products[0];
 
-  // Función para agregar el producto al carrito
   const handleAddToCart = (product: any) => {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
     cart.push(product);

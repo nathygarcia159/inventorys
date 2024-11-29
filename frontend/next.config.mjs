@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  target: "serverless", // Esta opción es importante para el despliegue en Amplify con SSR.
   images: {
     remotePatterns: [
       {
